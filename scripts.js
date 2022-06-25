@@ -39,7 +39,7 @@ function escreverMensagens(mensagens) {
                 break
 
             case "private_message":
-                if (mensagens[i].to === nome) {
+                if (mensagens[i].to === nome || mensagens[i].from === nome) {
                     MessageBoard.innerHTML +=
                         `<div class="${mensagens[i].type} ${ultima}"><p><span class="horario">(${mensagens[i].time})</span> <span><strong>${mensagens[i].from}</strong></span> reservadamente para <span><strong>${mensagens[i].to}</strong></span>: ${mensagens[i].text}</p></div>`;
                 }

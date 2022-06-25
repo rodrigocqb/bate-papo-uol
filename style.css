@@ -104,14 +104,21 @@ p{
     font-weight: 400;
     word-wrap: break-word;
 }
-.sidebar-background{
+.sidebar-open{
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
     position: fixed;
     top: 0;
     left: 0;
     z-index: 2;
+}
+.sidebar-background{
+    width: calc(100vw - 259px);
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 .sidebar {
     background-color: #FFFFFF;
@@ -140,12 +147,13 @@ p{
     max-width: 170px;
 }
 .escondido {
-    
+    display: none;
 }
 .visibilidade > div {
     display: flex;
-    margin-bottom: 10px;
-    margin-left: 20px;
+    margin: 0 25px 10px 20px;
+    justify-content: space-between;
+    align-items: center;
 }
 .visibilidade > div div:first-child {
     display: flex;
@@ -159,10 +167,14 @@ p{
     padding-left: 7px;
     font-size: 16px;
 }
+.visibilidade img {
+    padding-top: 8px
+}
 .participantes > div {
     display: flex;
-    margin-bottom: 10px;
-    margin-left: 17px;
+    margin: 0 25px 10px 17px;
+    justify-content: space-between;
+    align-items: center;
 }
 .participantes > div div:first-child {
     display: flex;
