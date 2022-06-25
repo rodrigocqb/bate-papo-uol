@@ -91,3 +91,15 @@ function toggleSidebar() {
     const elemento = document.querySelector(".sidebar-open");
     elemento.classList.toggle("escondido");
 }
+
+function selecionaParticipante(elemento) {
+    let tick = document.querySelector(".selected-participant");
+    tick.classList.toggle("selected-participant");
+    elemento.classList.toggle("selected-participant");
+}
+
+function selecionaVisibilidade(elemento) {
+    let tick = document.querySelector(".selected-visibility");
+    tick.classList.toggle("selected-visibility");
+    elemento.classList.toggle("selected-visibility");
+}

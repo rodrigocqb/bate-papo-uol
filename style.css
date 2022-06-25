@@ -187,3 +187,9 @@ p{
     padding-left: 7px;
     font-size: 16px;
 }
+.participantes img, .visibilidade img {
+    display: none;
+}
+.selected-participant img, .selected-visibility img {
+    display: initial;
+}

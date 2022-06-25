@@ -26,12 +26,12 @@
                 <div>Escolha um contato para enviar mensagem:</div>
             </div>
             <div class="participantes">
-                <div class="todos" onclick="selecionaParticipante(this);">
+                <div class="todos selected-participant" onclick="selecionaParticipante(this);">
                     <div>
                         <ion-icon name="people"></ion-icon>
                         <p>Todos</p>
                     </div>
-                    <div class="tick escondido">
+                    <div class="tick">
                         <img src="./img/tick.svg" />
                     </div>
                 </div>
@@ -40,7 +40,16 @@
                         <ion-icon name="person-circle"></ion-icon>
                         <p>Maria</p>
                     </div>
-                    <div class="tick escondido">
+                    <div class="tick">
+                        <img src="./img/tick.svg" />
+                    </div>
+                </div>
+                <div class="pessoa" onclick="selecionaParticipante(this);">
+                    <div>
+                        <ion-icon name="person-circle"></ion-icon>
+                        <p>Roberto</p>
+                    </div>
+                    <div class="tick">
                         <img src="./img/tick.svg" />
                     </div>
                 </div>
@@ -49,12 +58,12 @@
                 <div>Escolha a visibilidade:</div>
             </div>
             <div class="visibilidade">
-                <div class="publico" onclick="selecionaVisibilidade(this);">
+                <div class="publico selected-visibility" onclick="selecionaVisibilidade(this);">
                     <div>
                         <ion-icon name="lock-open"></ion-icon>
                         <p>Público</p>
                     </div>
-                    <div class="tick escondido">
+                    <div class="tick">
                         <img src="./img/tick.svg" />
                     </div>
                 </div>
@@ -63,7 +72,7 @@
                         <ion-icon name="lock-closed"></ion-icon>
                         <p>Reservadamente</p>
                     </div>
-                    <div class="tick escondido">
+                    <div class="tick">
                         <img src="./img/tick.svg" />
                     </div>
                 </div>
