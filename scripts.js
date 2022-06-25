@@ -67,8 +67,14 @@ function stayConnected() {
 
 setInterval(stayConnected, 5000);
 
+let messagebox = document.querySelector("textarea");
+messagebox.addEventListener("keypress", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        enviarMensagem();
+    }
+});
 function enviarMensagem() {
-    let messagebox = document.querySelector("textarea");
     console.log(messagebox.value);
     const envio = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", { from: nome, to: "Todos", text: messagebox.value, type: "message" });
     messagebox.value = "";
