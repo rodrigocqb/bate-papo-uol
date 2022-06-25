@@ -15,7 +15,6 @@ registrar();
 let mensagens;
 
 function buscarMensagens(response) {
-    console.log(response.data);
     mensagens = response.data;
     escreverMensagens(mensagens);
 }
@@ -67,3 +66,17 @@ function stayConnected() {
 }
 
 setInterval(stayConnected, 5000);
+
+function enviarMensagem() {
+    let messagebox = document.querySelector("textarea");
+    console.log(messagebox.value);
+    const envio = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", { from: nome, to: "Todos", text: messagebox.value, type: "message" });
+    messagebox.value = "";
+    envio.then(() => {
+        const promessa = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
+        promessa.then(buscarMensagens);
+    });
+    envio.catch(() => {
+        window.location.reload();
+    });
+}
