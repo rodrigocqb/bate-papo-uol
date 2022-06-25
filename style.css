@@ -42,7 +42,6 @@ body{
     align-items: center;
     justify-content: space-between;
     padding: 0 17px;
-    font-size: 18px;
     color: #000000;
 }
 .bottom ion-icon {
@@ -54,12 +53,51 @@ textarea {
     outline: none;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    height: 30px;
+    font-size: 18px;
 }
 textarea::placeholder{
     color:#000000;
     font-style: italic;
     font-weight: 400;
+    font-size: 18px;
 }
-span {
+strong {
     font-weight: bold;
+}
+.horario {
+    color: #AAAAAA;
+}
+p{
+    font-size: 14px;
+}
+.message {
+    background-color: #FFFFFF;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    line-height: 19px;
+    margin-bottom: 4px;
+    padding: 8px 8px;
+    font-weight: 400;
+}
+.status {
+    background-color: #DCDCDC;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    line-height: 19px;
+    margin-bottom: 4px;
+    padding: 8px 8px;
+    font-weight: 400;
+}
+.private_message {
+    background-color: #FFDEDE;
+    min-height: 40px;
+    display: flex;
+    align-items: center;
+    line-height: 19px;
+    margin-bottom: 4px;
+    padding: 8px 8px;
+    font-weight: 400;
 }
