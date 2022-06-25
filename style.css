@@ -80,6 +80,7 @@ p{
     margin-bottom: 4px;
     padding: 8px 8px;
     font-weight: 400;
+    word-wrap: break-word;
 }
 .status {
     background-color: #DCDCDC;
@@ -90,6 +91,7 @@ p{
     margin-bottom: 4px;
     padding: 8px 8px;
     font-weight: 400;
+    word-wrap: break-word;
 }
 .private_message {
     background-color: #FFDEDE;
@@ -100,4 +102,76 @@ p{
     margin-bottom: 4px;
     padding: 8px 8px;
     font-weight: 400;
+    word-wrap: break-word;
+}
+.sidebar-background{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+.sidebar {
+    background-color: #FFFFFF;
+    width: 259px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #000000;
+}
+.sidebar-top {
+    height: 84px;
+}
+.sidebar-mid {
+    height: 60px;
+}
+.sidebar-mid, .sidebar-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 700;
+    font-size: 16px;
+}
+.sidebar-top div, .sidebar-mid div {
+    text-align: center;
+    max-width: 170px;
+}
+.escondido {
+    
+}
+.visibilidade > div {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 20px;
+}
+.visibilidade > div div:first-child {
+    display: flex;
+    align-items: center;
+}
+.visibilidade ion-icon {
+    font-size: 22px;
+}
+.visibilidade p {
+    padding-top: 8px;
+    padding-left: 7px;
+    font-size: 16px;
+}
+.participantes > div {
+    display: flex;
+    margin-bottom: 10px;
+    margin-left: 17px;
+}
+.participantes > div div:first-child {
+    display: flex;
+    align-items: center;
+}
+.participantes ion-icon {
+    font-size: 25px;
+}
+.participantes p {
+    padding-left: 7px;
+    font-size: 16px;
 }
