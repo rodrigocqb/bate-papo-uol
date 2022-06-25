@@ -16,17 +16,17 @@
             <img src="./img/logo.svg" />
         </div>
         <div>
-            <ion-icon name="people"></ion-icon>
+            <ion-icon name="people" onclick="toggleSidebar()"></ion-icon>
         </div>
     </div>
     <div class="sidebar-open escondido">
-        <div class="sidebar-background"> </div>
+        <div class="sidebar-background" onclick="toggleSidebar()"> </div>
         <div class="sidebar">
             <div class="sidebar-top">
                 <div>Escolha um contato para enviar mensagem:</div>
             </div>
             <div class="participantes">
-                <div>
+                <div class="todos" onclick="selecionaParticipante(this);">
                     <div>
                         <ion-icon name="people"></ion-icon>
                         <p>Todos</p>
@@ -35,7 +35,7 @@
                         <img src="./img/tick.svg" />
                     </div>
                 </div>
-                <div>
+                <div class="pessoa" onclick="selecionaParticipante(this);">
                     <div>
                         <ion-icon name="person-circle"></ion-icon>
                         <p>Maria</p>
@@ -49,7 +49,7 @@
                 <div>Escolha a visibilidade:</div>
             </div>
             <div class="visibilidade">
-                <div class="publico">
+                <div class="publico" onclick="selecionaVisibilidade(this);">
                     <div>
                         <ion-icon name="lock-open"></ion-icon>
                         <p>Público</p>
@@ -58,7 +58,7 @@
                         <img src="./img/tick.svg" />
                     </div>
                 </div>
-                <div class="reservadamente">
+                <div class="reservadamente" onclick="selecionaVisibilidade(this);">
                     <div>
                         <ion-icon name="lock-closed"></ion-icon>
                         <p>Reservadamente</p>

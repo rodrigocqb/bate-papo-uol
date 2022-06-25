@@ -86,3 +86,8 @@ function enviarMensagem() {
         window.location.reload();
     });
 }
+
+function toggleSidebar() {
+    const elemento = document.querySelector(".sidebar-open");
+    elemento.classList.toggle("escondido");
+}
