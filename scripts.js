@@ -25,7 +25,7 @@ function escreverMensagens(mensagens) {
     MessageBoard.innerHTML = "";
     let ultima = "";
     for (let i = 0; i < mensagens.length; i++) {
-        if (i === (mensagens.length - 1)){
+        if (i === (mensagens.length - 1)) {
             ultima = "true";
         }
         switch (mensagens[i].type) {
@@ -40,8 +40,10 @@ function escreverMensagens(mensagens) {
                 break
 
             case "private_message":
-                MessageBoard.innerHTML +=
-                    `<div class="${mensagens[i].type} ${ultima}"><p><span class="horario">(${mensagens[i].time})</span> <span><strong>${mensagens[i].from}</strong></span> reservadamente para <span><strong>${mensagens[i].to}</strong></span>: ${mensagens[i].text}</p></div>`;
+                if (mensagens[i].to === nome) {
+                    MessageBoard.innerHTML +=
+                        `<div class="${mensagens[i].type} ${ultima}"><p><span class="horario">(${mensagens[i].time})</span> <span><strong>${mensagens[i].from}</strong></span> reservadamente para <span><strong>${mensagens[i].to}</strong></span>: ${mensagens[i].text}</p></div>`;
+                }
                 break
         }
     }
@@ -60,8 +62,8 @@ function nomerepetido(erro) {
     }
 }
 
-function stayConnected(){
-    axios.post("https://mock-api.driven.com.br/api/v6/uol/status", {name: nome});
+function stayConnected() {
+    axios.post("https://mock-api.driven.com.br/api/v6/uol/status", { name: nome });
 }
 
 setInterval(stayConnected, 5000);
