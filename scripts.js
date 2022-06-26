@@ -108,10 +108,13 @@ function toggleSidebar() {
     elemento.classList.toggle("escondido");
 }
 
+
 let destinatario = "Todos";
 function selecionaParticipante(elemento) {
-    let tick = document.querySelector(".selected-participant");
-    tick.classList.toggle("selected-participant");
+    if (document.querySelector(".selected-participant") !== null) {
+        let tick = document.querySelector(".selected-participant");
+        tick.classList.toggle("selected-participant");
+    }
     elemento.classList.toggle("selected-participant");
     destinatario = elemento.querySelector("p").innerHTML;
     document.querySelector(".envio-reservado").innerHTML = `Enviando para ${destinatario} (reservadamente)`;
@@ -146,7 +149,8 @@ function buscarParticipantes(response) {
 
 function escreverParticipantes(participantes) {
     const usuarios = document.querySelector(".participantes");
-    usuarios.innerHTML = `
+    if (destinatario === "Todos") {
+        usuarios.innerHTML = `
         <div class="todos selected-participant" onclick="selecionaParticipante(this);">
             <div>
                 <ion-icon name="people"></ion-icon>
@@ -156,16 +160,45 @@ function escreverParticipantes(participantes) {
                 <img src="./img/tick.svg" />
             </div>
         </div>`;
-    for (let i = 0; i < participantes.length; i++) {
-        usuarios.innerHTML += `
-        <div class="pessoa" onclick="selecionaParticipante(this);">
+    } else {
+        usuarios.innerHTML = `
+        <div class="todos" onclick="selecionaParticipante(this);">
             <div>
-                <ion-icon name="person-circle"></ion-icon>
-                <p>${participantes[i].name}</p>
+                <ion-icon name="people"></ion-icon>
+                <p>Todos</p>
             </div>
             <div class="tick">
                 <img src="./img/tick.svg" />
             </div>
         </div>`;
+    }
+    for (let i = 0; i < participantes.length; i++) {
+        if (destinatario === participantes[i].name) {
+            usuarios.innerHTML += `
+            <div class="pessoa selected-participant" onclick="selecionaParticipante(this);">
+                <div>
+                    <ion-icon name="person-circle"></ion-icon>
+                    <p>${participantes[i].name}</p>
+                </div>
+                <div class="tick">
+                    <img src="./img/tick.svg" />
+                </div>
+            </div>`;
+        } else {
+            usuarios.innerHTML += `
+            <div class="pessoa" onclick="selecionaParticipante(this);">
+                <div>
+                    <ion-icon name="person-circle"></ion-icon>
+                    <p>${participantes[i].name}</p>
+                </div>
+                <div class="tick">
+                    <img src="./img/tick.svg" />
+                </div>
+            </div>`;
+        }
+    }
+    if (document.querySelector(".selected-participant") === null){
+        document.querySelector(".todos").classList.toggle("selected-participant");
+        destinatario = "Todos";
     }
 }
