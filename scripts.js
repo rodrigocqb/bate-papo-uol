@@ -119,6 +119,9 @@ function selecionaParticipante(elemento) {
     elemento.classList.toggle("selected-participant");
     destinatario = elemento.querySelector("p").innerHTML;
     document.querySelector(".envio-reservado").innerHTML = `Enviando para ${destinatario} (reservadamente)`;
+    if (elemento.classList.contains("todos")){
+        selecionaVisibilidade(document.querySelector(".publico"));
+    }
 }
 
 function selecionaVisibilidade(elemento) {
@@ -201,5 +204,8 @@ function escreverParticipantes(participantes) {
     if (document.querySelector(".selected-participant") === null){
         document.querySelector(".todos").classList.toggle("selected-participant");
         destinatario = "Todos";
+        if (document.querySelector(".selected-visibility").classList.contains("reservadamente")){
+            selecionaVisibilidade(document.querySelector(".publico"));
+        }
     }
 }
