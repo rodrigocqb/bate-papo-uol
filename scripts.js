@@ -1,3 +1,6 @@
+//promessap é o valor da promessa relacionada às mensagens
+const promessam = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
+promessam.then(buscarMensagens);
 setInterval(() => {
     const promessa = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
     promessa.then(buscarMensagens);
@@ -124,5 +127,45 @@ function selecionaVisibilidade(elemento) {
         privacidade.innerHTML = `Enviando para ${destinatario} (reservadamente)`;
     } else {
         privacidade.classList.add("escondido");
+    }
+}
+
+//promessap é o valor da promessa relacionada aos participantes
+const promessap = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants");
+promessap.then(buscarParticipantes);
+setInterval(() => {
+    const promessa = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants");
+    promessa.then(buscarParticipantes);
+}, 10000)
+
+let participantes;
+function buscarParticipantes(response) {
+    participantes = response.data;
+    escreverParticipantes(participantes);
+}
+
+function escreverParticipantes(participantes) {
+    const usuarios = document.querySelector(".participantes");
+    usuarios.innerHTML = `
+        <div class="todos selected-participant" onclick="selecionaParticipante(this);">
+            <div>
+                <ion-icon name="people"></ion-icon>
+                <p>Todos</p>
+            </div>
+            <div class="tick">
+                <img src="./img/tick.svg" />
+            </div>
+        </div>`;
+    for (let i = 0; i < participantes.length; i++) {
+        usuarios.innerHTML += `
+        <div class="pessoa" onclick="selecionaParticipante(this);">
+            <div>
+                <ion-icon name="person-circle"></ion-icon>
+                <p>${participantes[i].name}</p>
+            </div>
+            <div class="tick">
+                <img src="./img/tick.svg" />
+            </div>
+        </div>`;
     }
 }
