@@ -106,6 +106,7 @@ function enviarMensagem() {
 function toggleSidebar() {
     const elemento = document.querySelector(".sidebar-open");
     elemento.classList.toggle("escondido");
+    document.querySelector("body").classList.toggle("stop-scroll");
 }
 
 
