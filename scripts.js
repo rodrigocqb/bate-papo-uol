@@ -125,6 +125,11 @@ function selecionaParticipante(elemento) {
 }
 
 function selecionaVisibilidade(elemento) {
+    if (document.querySelector(".todos").classList.contains("selected-participant")
+    && elemento.classList.contains("reservadamente")){
+        alert("Selecione um contato que não seja Todos\ne, então, selecione a visibilidade Reservadamente\npara enviar uma mensagem reservada");
+        return
+    }
     let tick = document.querySelector(".selected-visibility");
     tick.classList.toggle("selected-visibility");
     elemento.classList.toggle("selected-visibility");
