@@ -68,7 +68,7 @@ function stayConnected() {
 setInterval(stayConnected, 5000);
 
 let messagebox = document.querySelector("textarea");
-messagebox.addEventListener("keypress", function(e) {
+messagebox.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
         e.preventDefault();
         enviarMensagem();
@@ -76,15 +76,28 @@ messagebox.addEventListener("keypress", function(e) {
 });
 function enviarMensagem() {
     console.log(messagebox.value);
-    const envio = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", { from: nome, to: "Todos", text: messagebox.value, type: "message" });
-    messagebox.value = "";
-    envio.then(() => {
-        const promessa = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
-        promessa.then(buscarMensagens);
-    });
-    envio.catch(() => {
-        window.location.reload();
-    });
+    const selected = document.querySelector(".selected-visibility");
+    if (selected.classList.contains("reservadamente")) {
+        const envio = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", { from: nome, to: destinatario, text: messagebox.value, type: "private_message" });
+        messagebox.value = "";
+        envio.then(() => {
+            const promessa = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
+            promessa.then(buscarMensagens);
+        });
+        envio.catch(() => {
+            window.location.reload();
+        });
+    } else {
+        const envio = axios.post("https://mock-api.driven.com.br/api/v6/uol/messages", { from: nome, to: destinatario, text: messagebox.value, type: "message" });
+        messagebox.value = "";
+        envio.then(() => {
+            const promessa = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
+            promessa.then(buscarMensagens);
+        });
+        envio.catch(() => {
+            window.location.reload();
+        });
+    }
 }
 
 function toggleSidebar() {
@@ -92,14 +105,24 @@ function toggleSidebar() {
     elemento.classList.toggle("escondido");
 }
 
+let destinatario = "Todos";
 function selecionaParticipante(elemento) {
     let tick = document.querySelector(".selected-participant");
     tick.classList.toggle("selected-participant");
     elemento.classList.toggle("selected-participant");
+    destinatario = elemento.querySelector("p").innerHTML;
+    document.querySelector(".envio-reservado").innerHTML = `Enviando para ${destinatario} (reservadamente)`;
 }
 
 function selecionaVisibilidade(elemento) {
     let tick = document.querySelector(".selected-visibility");
     tick.classList.toggle("selected-visibility");
     elemento.classList.toggle("selected-visibility");
+    let privacidade = document.querySelector(".envio-reservado");
+    if (elemento.classList.contains("reservadamente")) {
+        privacidade.classList.remove("escondido");
+        privacidade.innerHTML = `Enviando para ${destinatario} (reservadamente)`;
+    } else {
+        privacidade.classList.add("escondido");
+    }
 }

@@ -39,13 +39,24 @@ body{
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     background-color: #FFFFFF;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.bottom div {
+    display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 17px;
     color: #000000;
 }
+.envio-reservado {
+    font-size: 14px;
+    font-weight: 300;
+    color:#505050;
+    padding: 3px 17px;
+}
 .bottom ion-icon {
-    font-size: 26px;
+    font-size: 32px;
 }
 textarea {
     border: 0px;
@@ -80,7 +91,7 @@ p{
     margin-bottom: 4px;
     padding: 8px 8px;
     font-weight: 400;
-    word-wrap: break-word;
+    word-break: break-all;
 }
 .status {
     background-color: #DCDCDC;
@@ -91,7 +102,7 @@ p{
     margin-bottom: 4px;
     padding: 8px 8px;
     font-weight: 400;
-    word-wrap: break-word;
+    word-break: break-all;
 }
 .private_message {
     background-color: #FFDEDE;
@@ -102,7 +113,7 @@ p{
     margin-bottom: 4px;
     padding: 8px 8px;
     font-weight: 400;
-    word-wrap: break-word;
+    word-break: break-all;
 }
 .sidebar-open{
     width: 100%;
