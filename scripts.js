@@ -174,29 +174,16 @@ function buscarParticipantes(response) {
 
 function escreverParticipantes(participantes) {
     const usuarios = document.querySelector(".participantes");
-    if (destinatario === "Todos") {
-        usuarios.innerHTML = `
-        <div class="todos selected-participant" onclick="selecionaParticipante(this);">
-            <div>
-                <ion-icon name="people"></ion-icon>
-                <p>Todos</p>
-            </div>
-            <div class="tick">
-                <img src="./img/tick.svg" />
-            </div>
-        </div>`;
-    } else {
-        usuarios.innerHTML = `
-        <div class="todos" onclick="selecionaParticipante(this);">
-            <div>
-                <ion-icon name="people"></ion-icon>
-                <p>Todos</p>
-            </div>
-            <div class="tick">
-                <img src="./img/tick.svg" />
-            </div>
-        </div>`;
-    }
+    usuarios.innerHTML = `
+    <div class="todos" onclick="selecionaParticipante(this);">
+        <div>
+            <ion-icon name="people"></ion-icon>
+            <p>Todos</p>
+        </div>
+        <div class="tick">
+            <img src="./img/tick.svg" />
+        </div>
+    </div>`;
     for (let i = 0; i < participantes.length; i++) {
         if (destinatario === participantes[i].name) {
             usuarios.innerHTML += `
