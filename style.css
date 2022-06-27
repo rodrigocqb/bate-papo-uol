@@ -212,3 +212,49 @@ p{
 .icon {
     min-width: 25px;
 }
+.entrance {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background-color: #FFFFFF;
+    padding-top: 72px;
+}
+.entrance img {
+    width: 130px;
+    height: 92px;
+}
+.entrance div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.entrance textarea::placeholder {
+    text-align: center;
+    font-style: initial;
+    color: #AEAEAE;
+}
+.entrance-logo {
+    margin-bottom: 94px;
+}
+.input-nome {
+    margin-bottom: 15px;
+}
+.entrance button {
+    font-size: 18px;
+    color: #696969;
+    font-weight: 400;
+    font-family: 'Roboto', sans-serif;
+    width: 109px;
+    height: 45px;
+    border-radius: 9px;
+    background-color: #E7E7E7;
+    border: 0px;
+}
+h1 {
+    padding-top: 8px;
+    font-weight: 700;
+    font-size: 20px;
+}

@@ -6,14 +6,23 @@ setInterval(() => {
     promessa.then(buscarMensagens);
 }, 3000)
 
-let nome = prompt("Qual o seu nome de usuário?");
-
+let inputNome = document.querySelector(".name-input");
+let nome;
+inputNome.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        document.querySelector("button").click();
+    }
+});
 function registrar() {
+    if (nome === undefined) {
+        nome = inputNome.value;
+        console.log(nome)
+    }
     let promessaEntrar = axios.post("https://mock-api.driven.com.br/api/v6/uol/participants", { name: nome });
     promessaEntrar.then(entrar);
     promessaEntrar.catch(nomerepetido);
 }
-registrar();
 
 let mensagens;
 
@@ -53,6 +62,13 @@ function escreverMensagens(mensagens) {
 }
 
 function entrar(resposta) {
+    document.querySelector(".name-input").classList.add("escondido");
+    document.querySelector("button").classList.add("escondido");
+    document.querySelector(".loading").classList.remove("escondido");
+    document.querySelector("h1").classList.remove("escondido");
+    setTimeout(() => {
+        document.querySelector(".entrance").classList.add("escondido");
+    }, 1500)
     console.log(resposta);
 }
 
@@ -70,7 +86,7 @@ function stayConnected() {
 
 setInterval(stayConnected, 5000);
 
-let messagebox = document.querySelector("textarea");
+let messagebox = document.querySelector(".msg-txt");
 messagebox.addEventListener("keypress", function (e) {
     if (e.key === "Enter") {
         e.preventDefault();
@@ -119,14 +135,14 @@ function selecionaParticipante(elemento) {
     elemento.classList.toggle("selected-participant");
     destinatario = elemento.querySelector("p").innerHTML;
     document.querySelector(".envio-reservado").innerHTML = `Enviando para ${destinatario} (reservadamente)`;
-    if (elemento.classList.contains("todos")){
+    if (elemento.classList.contains("todos")) {
         selecionaVisibilidade(document.querySelector(".publico"));
     }
 }
 
 function selecionaVisibilidade(elemento) {
     if (document.querySelector(".todos").classList.contains("selected-participant")
-    && elemento.classList.contains("reservadamente")){
+        && elemento.classList.contains("reservadamente")) {
         alert("Selecione um contato que não seja Todos\ne, então, selecione a visibilidade Reservadamente\npara enviar uma mensagem reservada");
         return
     }
@@ -214,10 +230,10 @@ function escreverParticipantes(participantes) {
             </div>`;
         }
     }
-    if (document.querySelector(".selected-participant") === null){
+    if (document.querySelector(".selected-participant") === null) {
         document.querySelector(".todos").classList.toggle("selected-participant");
         destinatario = "Todos";
-        if (document.querySelector(".selected-visibility").classList.contains("reservadamente")){
+        if (document.querySelector(".selected-visibility").classList.contains("reservadamente")) {
             selecionaVisibilidade(document.querySelector(".publico"));
         }
     }

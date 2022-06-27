@@ -11,6 +11,19 @@
 </head>
 
 <body>
+    <div class="entrance">
+        <div class="entrance-logo">
+            <img src="./img/logo.svg" />
+        </div>
+        <div class="login">
+            <div class="input-nome">
+                <textarea placeholder="Digite seu nome" class="name-input"></textarea>
+            </div>
+            <button onclick="registrar()">Entrar</button>
+            <img class="loading escondido" src="./img/loading-buffering.gif" />
+            <h1 class="escondido">Entrando...</h1>
+        </div>
+    </div>
     <div class="topo">
         <div>
             <img src="./img/logo.svg" />
@@ -26,7 +39,7 @@
                 <div>Escolha um contato para enviar mensagem:</div>
             </div>
             <div class="participantes">
-                
+
             </div>
             <div class="sidebar-mid">
                 <div>Escolha a visibilidade:</div>
@@ -58,7 +71,7 @@
     </div>
     <div class="bottom">
         <div>
-            <textarea rows="1" cols="40" placeholder="Escreva aqui..."></textarea>
+            <textarea rows="1" cols="40" placeholder="Escreva aqui..." class="msg-txt"></textarea>
             <ion-icon class="send-button" name="paper-plane-outline" onclick="enviarMensagem()"></ion-icon>
         </div>
         <p class="envio-reservado escondido"></p>
