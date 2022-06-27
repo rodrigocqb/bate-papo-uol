@@ -123,7 +123,7 @@ p{
     left: 0;
     z-index: 2;
     overflow-y: scroll;
-    overflow-x: hidden;
+    word-break: break-word;
 }
 .sidebar-background{
     width: calc(100vw - 259px);
@@ -208,4 +208,7 @@ p{
 }
 .stop-scroll {
     overflow: hidden;
+}
+.icon {
+    min-width: 25px;
 }

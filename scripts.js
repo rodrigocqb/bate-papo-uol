@@ -186,8 +186,12 @@ function escreverParticipantes(participantes) {
             usuarios.innerHTML += `
             <div class="pessoa selected-participant" onclick="selecionaParticipante(this);">
                 <div>
-                    <ion-icon name="person-circle"></ion-icon>
-                    <p>${participantes[i].name}</p>
+                    <div class="icon">
+                        <ion-icon name="person-circle"></ion-icon>
+                    </div>
+                    <div>
+                        <p>${participantes[i].name}</p>
+                    </div>
                 </div>
                 <div class="tick">
                     <img src="./img/tick.svg" />
@@ -197,8 +201,12 @@ function escreverParticipantes(participantes) {
             usuarios.innerHTML += `
             <div class="pessoa" onclick="selecionaParticipante(this);">
                 <div>
-                    <ion-icon name="person-circle"></ion-icon>
-                    <p>${participantes[i].name}</p>
+                    <div class="icon">
+                        <ion-icon name="person-circle"></ion-icon>
+                    </div>
+                    <div>
+                        <p>${participantes[i].name}</p>
+                    </div>
                 </div>
                 <div class="tick">
                     <img src="./img/tick.svg" />
